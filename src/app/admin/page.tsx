@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 type Tab = 'profile' | 'skills' | 'projects' | 'experience';
 
-const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+const API = '';
 
 function useAuth() {
   const router = useRouter();

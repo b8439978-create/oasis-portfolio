@@ -1,12 +1,30 @@
-from flask import Flask, jsonify, request, session
+from flask import Flask, jsonify, request, session, send_from_directory
 from flask_cors import CORS
 import os
 import json
 import secrets
 
-app = Flask(__name__, static_folder="../out", static_url_path="")
+app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", secrets.token_hex(32))
 CORS(app, supports_credentials=True)
+
+OUT_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "out")
+
+# Serve SPA routes
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def serve(path):
+    if not path:
+        return send_from_directory(OUT_DIR, "index.html")
+    if path.startswith("api/"):
+        return jsonify({"error": "Not found"}), 404
+    full = os.path.join(OUT_DIR, path)
+    if os.path.exists(full) and os.path.isfile(full):
+        return send_from_directory(OUT_DIR, path)
+    index = os.path.join(OUT_DIR, path, "index.html")
+    if os.path.exists(index):
+        return send_from_directory(os.path.join(OUT_DIR, path), "index.html")
+    return send_from_directory(OUT_DIR, "index.html")
 
 # Simple file-based storage
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
