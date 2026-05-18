@@ -1,0 +1,422 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.4);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --shadow-color: rgba(255, 255, 255, 0.1);
+  --bubble-shadow: 0 0 20px rgba(255, 255, 255, 0.05), 0 8px 32px rgba(0, 0, 0, 0.3);
+  --nav-blur: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #000000;
+  --text-secondary: rgba(0, 0, 0, 0.7);
+  --text-muted: rgba(0, 0, 0, 0.4);
+  --border-color: rgba(0, 0, 0, 0.08);
+  --glass-bg: rgba(0, 0, 0, 0.04);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --bubble-shadow: 0 0 20px rgba(0, 0, 0, 0.05), 0 8px 32px rgba(0, 0, 0, 0.1);
+  --nav-blur: rgba(255, 255, 255, 0.7);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-muted) transparent;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+::selection {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 2px;
+}
+
+/* =============================================
+   LIQUID BUBBLE EFFECT
+   ============================================= */
+.liquid-bubble {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+}
+
+.liquid-bubble::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--text-muted) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.liquid-bubble:hover {
+  transform: scale(1.06);
+  box-shadow: var(--bubble-shadow);
+}
+
+.liquid-bubble:hover::before {
+  opacity: 0.15;
+}
+
+.liquid-bubble.active {
+  transform: scale(1.06);
+  box-shadow: var(--bubble-shadow);
+}
+
+.liquid-bubble.active::before {
+  opacity: 0.2;
+}
+
+/* Navbar liquid bubble */
+.nav-bubble {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+}
+
+.nav-bubble::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 12px;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--text-muted) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.nav-bubble:hover {
+  transform: scale(1.1);
+}
+
+.nav-bubble:hover::before {
+  opacity: 0.12;
+}
+
+.nav-bubble.active::before {
+  opacity: 0.18;
+}
+
+/* Special nav link with backdrop blur background */
+.nav-link-bg {
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-link-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.nav-link-bg:hover {
+  transform: scale(1.08);
+}
+
+.nav-link-bg:hover::before {
+  opacity: 1;
+}
+
+/* =============================================
+   GLASSMORPHISM
+   ============================================= */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.glass-card:hover {
+  border-color: var(--text-muted);
+  box-shadow: var(--bubble-shadow);
+  transform: scale(1.02);
+}
+
+/* =============================================
+   BUTTONS
+   ============================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 24px var(--shadow-color);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-outline:hover {
+  background: var(--glass-bg);
+  border-color: var(--text-muted);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--shadow-color);
+}
+
+/* =============================================
+   NAVBAR
+   ============================================= */
+.navbar-glass {
+  background: var(--nav-blur);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* =============================================
+   ANIMATE ON SCROLL (fade-up)
+   ============================================= */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
+
+/* =============================================
+   MISC
+   ============================================= */
+.section-padding {
+  padding: 5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 6rem 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 8rem 6rem;
+  }
+}
+
+.container-premium {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--text-secondary);
+  font-weight: 400;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* Theme toggle animation */
+.theme-toggle {
+  position: relative;
+  width: 56px;
+  height: 28px;
+  border-radius: 14px;
+  background: var(--glass-bg);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  padding: 2px;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 16px var(--shadow-color);
+}
+
+.theme-toggle-knob {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.theme-toggle[data-theme="light"] .theme-toggle-knob {
+  transform: translateX(28px);
+}
+
+/* Contact icon bubbles */
+.contact-bubble {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+  background: var(--glass-bg);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.contact-bubble:hover {
+  transform: scale(1.15);
+  border-color: var(--text-muted);
+  box-shadow: var(--bubble-shadow);
+}
+
+/* Skill icon containers */
+.skill-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+  background: var(--glass-bg);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  margin: 0 auto 0.75rem;
+  font-size: 1.5rem;
+}
+
+.skill-icon:hover {
+  transform: scale(1.1);
+  border-color: var(--text-muted);
+  box-shadow: var(--bubble-shadow);
+}
+
+/* Timeline */
+.timeline-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border-color);
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -4px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  border: 2px solid var(--bg-primary);
+}
+
+/* Particles container */
+#particles-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Section wrapper to ensure proper z-index stacking */
+section {
+  position: relative;
+  z-index: 1;
+}
