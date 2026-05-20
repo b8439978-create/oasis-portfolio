@@ -23,7 +23,9 @@ jobs:
         run: cp -r out deploy-temp/
 
       - name: Deploy to Railway
-        run: npx @railway/cli up --detach
+        run: |
+          npx @railway/cli link --project 7943590d-78b1-4471-8582-5c29588e7dc5 --service 98d4bf35-9e13-4af7-b361-5a6c7fda4d4c
+          npx @railway/cli up --detach
         env:
           RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_API_TOKEN }}
         working-directory: deploy-temp
