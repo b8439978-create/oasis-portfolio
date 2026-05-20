@@ -22,11 +22,8 @@ jobs:
       - name: Copy out to deploy-temp
         run: cp -r out deploy-temp/
 
-      - name: Install Railway CLI
-        run: npm install -g @railway/cli
-
       - name: Deploy to Railway
-        run: railway up --ci -p 7943590d-78b1-4471-8582-5c29588e7dc5 -s 98d4bf35-9e13-4af7-b361-5a6c7fda4d4c -e 61fbb583-976c-4b1d-84d4-278e5d688071
+        run: npx @railway/cli up --ci
         env:
-          RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_API_TOKEN }}
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
         working-directory: deploy-temp
