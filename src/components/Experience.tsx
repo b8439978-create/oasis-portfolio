@@ -76,7 +76,7 @@ export default function Experience() {
                   className="text-xs font-medium tracking-wider uppercase mb-3"
                   style={{ color: 'var(--text-muted)' }}
                 >
-                  {item.period}
+                  {item.date || item.period}
                 </p>
                 <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                   {item.description}

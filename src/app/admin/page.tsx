@@ -67,7 +67,7 @@ export default function AdminDashboard() {
   };
 
   const addSkill = () => {
-    setSkills([...skills, { name: '', icon: '' }]);
+    setSkills([...skills, { name: '', icon: '', date: '' }]);
   };
 
   const updateSkill = (i: number, field: string, value: string) => {
@@ -88,7 +88,7 @@ export default function AdminDashboard() {
   };
 
   const addProject = () => {
-    setProjects([...projects, { id: Date.now(), title: '', description: '', tech: [], liveUrl: '', githubUrl: '', _new: true }]);
+    setProjects([...projects, { id: Date.now(), title: '', description: '', tech: [], liveUrl: '', githubUrl: '', date: '', _new: true }]);
   };
 
   const updateProject = (i: number, field: string, value: any) => {
@@ -101,7 +101,7 @@ export default function AdminDashboard() {
     const p = projects[i];
     setSaving(true);
     if (p._new) {
-      const res = await fetch(`${API}/api/admin/projects`, { method: 'POST', headers, body: JSON.stringify({ title: p.title, description: p.description, tech: p.tech, liveUrl: p.liveUrl, githubUrl: p.githubUrl }) });
+      const res = await fetch(`${API}/api/admin/projects`, { method: 'POST', headers, body: JSON.stringify({ title: p.title, description: p.description, tech: p.tech, liveUrl: p.liveUrl, githubUrl: p.githubUrl, date: p.date }) });
       const data = await res.json();
       if (data.ok) {
         const updated = [...projects];
@@ -109,7 +109,7 @@ export default function AdminDashboard() {
         setProjects(updated);
       }
     } else {
-      await fetch(`${API}/api/admin/projects/${p.id}`, { method: 'PUT', headers, body: JSON.stringify({ title: p.title, description: p.description, tech: p.tech, liveUrl: p.liveUrl, githubUrl: p.githubUrl }) });
+      await fetch(`${API}/api/admin/projects/${p.id}`, { method: 'PUT', headers, body: JSON.stringify({ title: p.title, description: p.description, tech: p.tech, liveUrl: p.liveUrl, githubUrl: p.githubUrl, date: p.date }) });
     }
     setSaving(false);
     showMsg('Project saved!');
@@ -129,7 +129,7 @@ export default function AdminDashboard() {
   };
 
   const addExperience = () => {
-    setExperience([...experience, { role: '', company: '', period: '', description: '' }]);
+    setExperience([...experience, { role: '', company: '', period: '', description: '', date: '' }]);
   };
 
   const updateExp = (i: number, field: string, value: string) => {
@@ -269,7 +269,8 @@ export default function AdminDashboard() {
             {skills.map((skill, i) => (
               <div key={i} style={{ ...cardStyle, display: 'flex', gap: 12, alignItems: 'center' }}>
                 <input value={skill.name} onChange={e => updateSkill(i, 'name', e.target.value)} placeholder="Skill name" style={{ ...inputStyle, flex: 1 }} />
-                <input value={skill.icon} onChange={e => updateSkill(i, 'icon', e.target.value)} placeholder="Icon key" style={{ ...inputStyle, width: 120 }} />
+                <input value={skill.icon} onChange={e => updateSkill(i, 'icon', e.target.value)} placeholder="Icon key" style={{ ...inputStyle, width: 80 }} />
+                <input value={skill.date || ''} onChange={e => updateSkill(i, 'date', e.target.value)} placeholder="Date" style={{ ...inputStyle, width: 100 }} />
                 <button onClick={() => removeSkill(i)} style={{ ...btnStyle(false), color: '#ef4444', borderColor: '#ef4444' }}>X</button>
               </div>
             ))}
@@ -296,6 +297,7 @@ export default function AdminDashboard() {
                     <input value={project.liveUrl} onChange={e => updateProject(i, 'liveUrl', e.target.value)} placeholder="Live URL" style={{ ...inputStyle, flex: 1 }} />
                     <input value={project.githubUrl} onChange={e => updateProject(i, 'githubUrl', e.target.value)} placeholder="GitHub URL" style={{ ...inputStyle, flex: 1 }} />
                   </div>
+                  <input value={project.date || ''} onChange={e => updateProject(i, 'date', e.target.value)} placeholder="Date (e.g. 2024, March 2024)" style={inputStyle} />
                   <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
                     <button onClick={() => saveProject(i)} style={btnStyle(true)} disabled={saving}>{saving ? 'Saving...' : 'Save'}</button>
                     <button onClick={() => deleteProject(i)} style={{ ...btnStyle(false), color: '#ef4444', borderColor: '#ef4444' }}>Delete</button>
@@ -319,6 +321,7 @@ export default function AdminDashboard() {
                   <input value={exp.role} onChange={e => updateExp(i, 'role', e.target.value)} placeholder="Role" style={inputStyle} />
                   <input value={exp.company} onChange={e => updateExp(i, 'company', e.target.value)} placeholder="Company" style={inputStyle} />
                   <input value={exp.period} onChange={e => updateExp(i, 'period', e.target.value)} placeholder="Period (e.g. 2023 - Present)" style={inputStyle} />
+                  <input value={exp.date || ''} onChange={e => updateExp(i, 'date', e.target.value)} placeholder="Date (e.g. 2024, March 2024)" style={inputStyle} />
                   <textarea rows={2} value={exp.description} onChange={e => updateExp(i, 'description', e.target.value)} placeholder="Description" style={inputStyle} />
                   <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
                     <button onClick={() => saveExperience(i)} style={btnStyle(true)} disabled={saving}>{saving ? 'Saving...' : 'Save'}</button>

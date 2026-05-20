@@ -1,15 +1,13 @@
-FROM node:20-alpine AS frontend
-WORKDIR /build
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build
-
 FROM python:3.12-slim
+
 WORKDIR /app
+
 COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+
 COPY backend/ backend/
-COPY --from=frontend /build/out/ out/
+COPY out/ out/
+
 EXPOSE 5000
+
 CMD ["python", "backend/server.py"]

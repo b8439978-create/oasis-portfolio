@@ -58,10 +58,9 @@ export default function Navbar() {
         <a
           href="#hero"
           onClick={(e) => { e.preventDefault(); handleNavClick('#hero'); }}
-          className="text-xl md:text-2xl font-bold tracking-tight nav-bubble"
-          style={{ letterSpacing: '-0.03em' }}
+          className="nav-bubble"
         >
-          OASIS
+          <img src="/images/logo.png" alt="OASIS" className="h-8 md:h-10 w-auto" />
         </a>
 
         <div className="hidden md:flex items-center gap-1">

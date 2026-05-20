@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Python",
+    "icon": "python"
+  },
+  {
+    "name": "JavaScript",
+    "icon": "javascript"
+  },
+  {
+    "name": "React",
+    "icon": "react"
+  },
+  {
+    "name": "Three.js",
+    "icon": "threejs"
+  },
+  {
+    "name": "Node.js",
+    "icon": "nodejs"
+  },
+  {
+    "name": "Full-stack",
+    "icon": "fullstack"
+  },
+  {
+    "name": "Admin Panel Design",
+    "icon": "admin"
+  }
+]

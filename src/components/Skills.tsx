@@ -68,6 +68,11 @@ export default function Skills() {
               <p className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>
                 {skill.name}
               </p>
+              {skill.date && (
+                <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
+                  {skill.date}
+                </p>
+              )}
             </div>
           ))}
         </div>

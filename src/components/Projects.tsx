@@ -91,7 +91,7 @@ export default function Projects() {
                 />
                 <div className="text-center relative z-10">
                   <p className="text-sm font-medium tracking-[0.15em] uppercase" style={{ color: 'var(--text-muted)' }}>
-                    Project #{project.id}
+                    {project.date || `Project #${project.id}`}
                   </p>
                   <p className="text-lg font-bold tracking-tight mt-2" style={{ color: 'var(--text-secondary)' }}>
                     {project.title}

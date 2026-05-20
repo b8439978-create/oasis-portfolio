@@ -1,0 +1,20 @@
+[
+  {
+    "role": "Senior Full-Stack Developer",
+    "company": "Tech Corp",
+    "period": "2023 - Present",
+    "description": "Leading development of scalable web applications serving millions of users."
+  },
+  {
+    "role": "Full-Stack Developer",
+    "company": "Digital Agency",
+    "period": "2021 - 2023",
+    "description": "Built premium websites and admin panels for Fortune 500 clients."
+  },
+  {
+    "role": "Frontend Developer",
+    "company": "StartupXYZ",
+    "period": "2019 - 2021",
+    "description": "Developed React-based SaaS platform with real-time collaboration features."
+  }
+]

@@ -45,7 +45,7 @@ export default function Hero() {
             className="text-sm md:text-base font-medium tracking-[0.2em] uppercase mb-6"
             style={{ color: 'var(--text-muted)' }}
           >
-            &mdash; OASIS &mdash;
+            <img src="/images/logo.png" alt="OASIS" className="h-10 md:h-14 w-auto mx-auto opacity-80" />
           </p>
         </div>
 
