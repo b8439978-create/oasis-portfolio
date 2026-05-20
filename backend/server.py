@@ -269,7 +269,7 @@ def admin_delete_experience(eid):
 
 
 # ============================================================
-# IMAGE UPLOAD
+# FILE / IMAGE UPLOAD
 # ============================================================
 
 @app.route("/api/admin/upload", methods=["POST"])
@@ -281,10 +281,16 @@ def admin_upload():
     f = request.files["file"]
     if f.filename == "":
         return jsonify({"ok": False, "error": "No file"}), 400
-    ext = f.filename.rsplit(".", 1)[-1].lower() if "." in f.filename else "png"
+    ext = f.filename.rsplit(".", 1)[-1].lower() if "." in f.filename else "bin"
     name = f"{uuid.uuid4().hex}.{ext}"
     f.save(os.path.join(UPLOAD_DIR, name))
-    return jsonify({"ok": True, "url": f"/uploads/{name}"})
+    is_image = ext in ("png", "jpg", "jpeg", "gif", "webp", "svg")
+    return jsonify({
+        "ok": True,
+        "url": f"/uploads/{name}",
+        "name": f.filename,
+        "is_image": is_image,
+    })
 
 
 @app.route("/uploads/<path:filename>")

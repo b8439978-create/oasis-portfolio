@@ -137,6 +137,31 @@ export default function Projects() {
                     GitHub
                   </a>
                 </div>
+
+                {project.files && project.files.length > 0 && (
+                  <div className="mt-4 pt-4" style={{ borderTop: '1px solid var(--border-color)' }}>
+                    <p className="text-xs font-medium tracking-wider uppercase mb-2" style={{ color: 'var(--text-muted)' }}>Attachments</p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.files.map((f: any, fi: number) => (
+                        <a
+                          key={fi}
+                          href={f.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1.5 text-xs px-2.5 py-1.5 rounded-lg transition-colors hover:opacity-70"
+                          style={{ border: '1px solid var(--border-color)', background: 'var(--glass-bg)', color: 'var(--text-secondary)' }}
+                        >
+                          {f.is_image ? (
+                            <img src={f.url} alt="" style={{ width: 14, height: 14, objectFit: 'cover', borderRadius: 2 }} />
+                          ) : (
+                            <span style={{ fontSize: 12 }}>&#x1F4CE;</span>
+                          )}
+                          <span>{f.name}</span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           ))}

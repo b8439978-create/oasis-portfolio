@@ -49,6 +49,19 @@ function ImageUpload({ token, current, onUploaded }: { token: string; current?: 
   );
 }
 
+async function uploadFile(token: string, file: File): Promise<{ url: string; name: string; is_image: boolean } | null> {
+  const form = new FormData();
+  form.append('file', file);
+  const res = await fetch('/api/admin/upload', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}` },
+    body: form,
+  });
+  const data = await res.json();
+  if (data.ok) return { url: data.url, name: data.name, is_image: data.is_image };
+  return null;
+}
+
 export default function AdminDashboard() {
   const { token, headers, logout } = useAuth();
   const router = useRouter();
@@ -113,7 +126,7 @@ export default function AdminDashboard() {
   };
 
   const addProject = () => {
-    setProjects([...projects, { id: Date.now(), title: '', description: '', tech: [], liveUrl: '', githubUrl: '', date: '', _new: true }]);
+    setProjects([...projects, { id: Date.now(), title: '', description: '', tech: [], liveUrl: '', githubUrl: '', date: '', image: '', files: [], _new: true }]);
   };
 
   const updateProject = (i: number, field: string, value: any) => {
@@ -126,7 +139,7 @@ export default function AdminDashboard() {
     const p = projects[i];
     setSaving(true);
     if (p._new) {
-      const res = await fetch(`${API}/api/admin/projects`, { method: 'POST', headers, body: JSON.stringify({ title: p.title, description: p.description, tech: p.tech, liveUrl: p.liveUrl, githubUrl: p.githubUrl, date: p.date }) });
+      const res = await fetch(`${API}/api/admin/projects`, { method: 'POST', headers, body: JSON.stringify({ title: p.title, description: p.description, tech: p.tech, liveUrl: p.liveUrl, githubUrl: p.githubUrl, date: p.date, image: p.image, files: p.files }) });
       const data = await res.json();
       if (data.ok) {
         const updated = [...projects];
@@ -134,7 +147,7 @@ export default function AdminDashboard() {
         setProjects(updated);
       }
     } else {
-      await fetch(`${API}/api/admin/projects/${p.id}`, { method: 'PUT', headers, body: JSON.stringify({ title: p.title, description: p.description, tech: p.tech, liveUrl: p.liveUrl, githubUrl: p.githubUrl, date: p.date }) });
+      await fetch(`${API}/api/admin/projects/${p.id}`, { method: 'PUT', headers, body: JSON.stringify({ title: p.title, description: p.description, tech: p.tech, liveUrl: p.liveUrl, githubUrl: p.githubUrl, date: p.date, image: p.image, files: p.files }) });
     }
     setSaving(false);
     showMsg('Project saved!');
@@ -334,6 +347,36 @@ export default function AdminDashboard() {
                   </div>
                   <input value={project.date || ''} onChange={e => updateProject(i, 'date', e.target.value)} placeholder="Date (e.g. 2024, March 2024)" style={inputStyle} />
                   <ImageUpload token={token!} current={project.image} onUploaded={(url) => updateProject(i, 'image', url)} />
+                  <div>
+                    <label style={{ fontSize: 11, color: 'var(--text-muted)', display: 'block', marginBottom: 4 }}>Attached Files</label>
+                    {project.files?.map((f: any, fi: number) => (
+                      <div key={fi} style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+                        {f.is_image ? (
+                          <img src={f.url} alt="" style={{ width: 24, height: 24, objectFit: 'cover', borderRadius: 4 }} />
+                        ) : (
+                          <span style={{ fontSize: 16 }}>&#x1F4C4;</span>
+                        )}
+                        <a href={f.url} target="_blank" style={{ fontSize: 12, color: 'var(--text-secondary)' }}>{f.name}</a>
+                        <button onClick={() => {
+                          const updated = { ...project };
+                          updated.files = project.files.filter((_: any, idx: number) => idx !== fi);
+                          setProjects(projects.map((p: any, pi: number) => pi === i ? updated : p));
+                        }} style={{ ...btnStyle(false), color: '#ef4444', border: 'none', fontSize: 10, padding: '2px 6px', cursor: 'pointer' }}>X</button>
+                      </div>
+                    ))}
+                    <label style={{ padding: '4px 10px', borderRadius: 6, border: '1px solid var(--border-color)', fontSize: 11, cursor: 'pointer', color: 'var(--text-muted)', display: 'inline-block', marginTop: 4 }}>
+                      + Add File
+                      <input type="file" style={{ display: 'none' }} onChange={async (e) => {
+                        const file = e.target.files?.[0];
+                        if (!file) return;
+                        const result = await uploadFile(token!, file);
+                        if (result) {
+                          const updated = { ...project, files: [...(project.files || []), result] };
+                          setProjects(projects.map((p: any, pi: number) => pi === i ? updated : p));
+                        }
+                      }} />
+                    </label>
+                  </div>
                   <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
                     <button onClick={() => saveProject(i)} style={btnStyle(true)} disabled={saving}>{saving ? 'Saving...' : 'Save'}</button>
                     <button onClick={() => deleteProject(i)} style={{ ...btnStyle(false), color: '#ef4444', borderColor: '#ef4444' }}>Delete</button>
