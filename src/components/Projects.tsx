@@ -79,16 +79,14 @@ export default function Projects() {
                 className="h-48 sm:h-56 flex items-center justify-center relative overflow-hidden"
                 style={{ background: 'var(--bg-secondary)' }}
               >
-                <div
-                  className="absolute inset-0 opacity-[0.03]"
-                  style={{
-                    backgroundImage: `
-                      linear-gradient(var(--text-primary) 1px, transparent 1px),
-                      linear-gradient(90deg, var(--text-primary) 1px, transparent 1px)
-                    `,
+                {project.image ? (
+                  <img src={project.image} alt={project.title} className="absolute inset-0 w-full h-full object-cover" />
+                ) : (
+                  <div className="absolute inset-0 opacity-[0.03]" style={{
+                    backgroundImage: `linear-gradient(var(--text-primary) 1px, transparent 1px), linear-gradient(90deg, var(--text-primary) 1px, transparent 1px)`,
                     backgroundSize: '40px 40px',
-                  }}
-                />
+                  }} />
+                )}
                 <div className="text-center relative z-10">
                   <p className="text-sm font-medium tracking-[0.15em] uppercase" style={{ color: 'var(--text-muted)' }}>
                     {project.date || `Project #${project.id}`}

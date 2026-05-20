@@ -1,9 +1,11 @@
 from flask import Flask, jsonify, request, session, send_from_directory, send_file
 from flask_cors import CORS
+from werkzeug.utils import secure_filename
 import os
 import json
 import secrets
 import mimetypes
+import uuid
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", secrets.token_hex(32))
@@ -24,6 +26,9 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 os.makedirs(DATA_DIR, exist_ok=True)
 
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "oasis123")
+
+UPLOAD_DIR = os.path.join(os.path.dirname(__file__), "uploads")
+os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 
 def read_data(name):
@@ -261,6 +266,30 @@ def admin_delete_experience(eid):
         write_data("experience", exp)
         return jsonify({"ok": True})
     return jsonify({"ok": False, "error": "Not found"}), 404
+
+
+# ============================================================
+# IMAGE UPLOAD
+# ============================================================
+
+@app.route("/api/admin/upload", methods=["POST"])
+def admin_upload():
+    if not require_auth():
+        return jsonify({"ok": False, "error": "Unauthorized"}), 401
+    if "file" not in request.files:
+        return jsonify({"ok": False, "error": "No file"}), 400
+    f = request.files["file"]
+    if f.filename == "":
+        return jsonify({"ok": False, "error": "No file"}), 400
+    ext = f.filename.rsplit(".", 1)[-1].lower() if "." in f.filename else "png"
+    name = f"{uuid.uuid4().hex}.{ext}"
+    f.save(os.path.join(UPLOAD_DIR, name))
+    return jsonify({"ok": True, "url": f"/uploads/{name}"})
+
+
+@app.route("/uploads/<path:filename>")
+def serve_upload(filename):
+    return send_from_directory(UPLOAD_DIR, filename)
 
 
 # Serve SPA routes (must be last!)

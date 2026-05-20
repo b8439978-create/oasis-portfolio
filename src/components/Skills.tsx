@@ -61,9 +61,13 @@ export default function Skills() {
               className={`fade-up ${visible ? 'visible' : ''} delay-${Math.min(i + 1, 6)} flex flex-col items-center text-center`}
             >
               <div className="skill-icon liquid-bubble">
-                <span style={{ fontSize: '1.25rem', fontWeight: 600 }}>
-                  {iconMap[skill.icon] || '\u2B50'}
-                </span>
+                {skill.image ? (
+                  <img src={skill.image} alt={skill.name} style={{ width: 28, height: 28, objectFit: 'contain' }} />
+                ) : (
+                  <span style={{ fontSize: '1.25rem', fontWeight: 600 }}>
+                    {iconMap[skill.icon] || '\u2B50'}
+                  </span>
+                )}
               </div>
               <p className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>
                 {skill.name}

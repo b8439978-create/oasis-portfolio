@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
 type Tab = 'profile' | 'skills' | 'projects' | 'experience';
@@ -22,6 +22,31 @@ function useAuth() {
   };
 
   return { token, headers, logout };
+}
+
+function ImageUpload({ token, current, onUploaded }: { token: string; current?: string; onUploaded: (url: string) => void }) {
+  const uploadingImg = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const form = new FormData();
+    form.append('file', file);
+    const res = await fetch('/api/admin/upload', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}` },
+      body: form,
+    });
+    const data = await res.json();
+    if (data.ok) onUploaded(data.url);
+  };
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+      {current && <img src={current} alt="" style={{ width: 40, height: 40, objectFit: 'cover', borderRadius: 6, border: '1px solid var(--border-color)' }} />}
+      <label style={{ padding: '4px 10px', borderRadius: 6, border: '1px solid var(--border-color)', fontSize: 11, cursor: 'pointer', color: 'var(--text-muted)' }}>
+        Upload Image
+        <input type="file" accept="image/*" onChange={uploadingImg} style={{ display: 'none' }} />
+      </label>
+    </div>
+  );
 }
 
 export default function AdminDashboard() {
@@ -67,7 +92,7 @@ export default function AdminDashboard() {
   };
 
   const addSkill = () => {
-    setSkills([...skills, { name: '', icon: '', date: '' }]);
+    setSkills([...skills, { name: '', icon: '', date: '', image: '' }]);
   };
 
   const updateSkill = (i: number, field: string, value: string) => {
@@ -271,6 +296,16 @@ export default function AdminDashboard() {
                 <input value={skill.name} onChange={e => updateSkill(i, 'name', e.target.value)} placeholder="Skill name" style={{ ...inputStyle, flex: 1 }} />
                 <input value={skill.icon} onChange={e => updateSkill(i, 'icon', e.target.value)} placeholder="Icon key" style={{ ...inputStyle, width: 80 }} />
                 <input value={skill.date || ''} onChange={e => updateSkill(i, 'date', e.target.value)} placeholder="Date" style={{ ...inputStyle, width: 100 }} />
+                {skill.image && <img src={skill.image} alt="" style={{ width: 30, height: 30, objectFit: 'cover', borderRadius: 4 }} />}
+                <label style={{ fontSize: 10, cursor: 'pointer', color: 'var(--text-muted)', padding: '2px 6px', border: '1px solid var(--border-color)', borderRadius: 4 }}>
+                  Img
+                  <input type="file" accept="image/*" style={{ display: 'none' }} onChange={async (e) => {
+                    const f = e.target.files?.[0]; if (!f) return;
+                    const fd = new FormData(); fd.append('file', f);
+                    const r = await fetch('/api/admin/upload', { method: 'POST', headers: { Authorization: `Bearer ${token!}` }, body: fd });
+                    const d = await r.json(); if (d.ok) updateSkill(i, 'image', d.url);
+                  }} />
+                </label>
                 <button onClick={() => removeSkill(i)} style={{ ...btnStyle(false), color: '#ef4444', borderColor: '#ef4444' }}>X</button>
               </div>
             ))}
@@ -298,6 +333,7 @@ export default function AdminDashboard() {
                     <input value={project.githubUrl} onChange={e => updateProject(i, 'githubUrl', e.target.value)} placeholder="GitHub URL" style={{ ...inputStyle, flex: 1 }} />
                   </div>
                   <input value={project.date || ''} onChange={e => updateProject(i, 'date', e.target.value)} placeholder="Date (e.g. 2024, March 2024)" style={inputStyle} />
+                  <ImageUpload token={token!} current={project.image} onUploaded={(url) => updateProject(i, 'image', url)} />
                   <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
                     <button onClick={() => saveProject(i)} style={btnStyle(true)} disabled={saving}>{saving ? 'Saving...' : 'Save'}</button>
                     <button onClick={() => deleteProject(i)} style={{ ...btnStyle(false), color: '#ef4444', borderColor: '#ef4444' }}>Delete</button>
