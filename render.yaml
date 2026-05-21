@@ -1,9 +1,12 @@
 services:
   - type: web
     name: oasis-portfolio
-    env: docker
+    runtime: python
     repo: https://github.com/b8439978-create/oasis-portfolio
     branch: master
+    plan: free
+    buildCommand: npm install && npm run build && pip install -r backend/requirements.txt
+    startCommand: cd backend && gunicorn server:app --worker-class sync --workers 2 --timeout 120 --bind 0.0.0.0:$PORT
     healthCheckPath: /api/health
     envVars:
       - key: PORT
