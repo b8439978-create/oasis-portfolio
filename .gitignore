@@ -1,6 +1,6 @@
 node_modules/
 .next/
-out/
+# out/ faqat loyihada build qilingan frontend — Render uchun kerak
 .env
 .env.local
 backend/__pycache__/
