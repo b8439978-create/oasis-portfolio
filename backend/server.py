@@ -31,6 +31,27 @@ ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "oasis123")
 UPLOAD_DIR = os.path.join(os.path.dirname(__file__), "uploads")
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
+# Eski default data fayllarini tozalash
+for fname in ["projects", "experience"]:
+    path = os.path.join(DATA_DIR, f"{fname}.json")
+    if os.path.exists(path):
+        with open(path, "r") as f:
+            try:
+                content = f.read().strip()
+                if content:
+                    data = json.loads(content)
+                    # Agar faqat default projectlar bo'lsa (id 1-4 bilan), tozala
+                    if isinstance(data, list) and len(data) > 0:
+                        old_titles = {"Neon Dashboard", "Stream Verse", "Crypto Vault", "AI Assistant",
+                                       "Senior Full-Stack Developer", "Full-Stack Developer", "Frontend Developer",
+                                       "Tech Corp", "Digital Agency", "StartupXYZ"}
+                        titles = {item.get("title", "") for item in data if isinstance(item, dict)}
+                        titles.update({item.get("company", "") for item in data if isinstance(item, dict)})
+                        if titles & old_titles:
+                            write_data(fname, [])
+            except (json.JSONDecodeError, Exception):
+                pass
+
 
 def read_data(name):
     path = os.path.join(DATA_DIR, f"{name}.json")
