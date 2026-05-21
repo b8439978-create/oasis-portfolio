@@ -6,7 +6,7 @@ services:
     branch: master
     plan: free
     buildCommand: pip install -r backend/requirements.txt
-    startCommand: bash start.sh
+    startCommand: python backend/run.py
     healthCheckPath: /api/health
     envVars:
       - key: PORT
