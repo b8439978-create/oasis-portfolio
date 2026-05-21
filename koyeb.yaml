@@ -1,0 +1,17 @@
+name: oasis-portfolio
+service:
+  name: web
+  instance_type: nano
+  ports:
+    - port: 5000
+      protocol: http
+  docker:
+    dockerfile: Dockerfile
+  env:
+    - key: PORT
+      value: "5000"
+    - key: ADMIN_PASSWORD
+      value: "oasis123"
+  health_check:
+    http: /api/health
+    initial_delay_seconds: 10
