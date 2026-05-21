@@ -11,6 +11,18 @@ from . import admin  # alohida admin panel fayli
 # Create tables
 Base.metadata.create_all(bind=engine)
 
+# Migration: add new columns if missing (for existing tables)
+from sqlalchemy import inspect as sa_inspect, text
+with engine.connect() as conn:
+    inspector = sa_inspect(engine)
+    if "projects" in inspector.get_table_names():
+        cols = [c["name"] for c in inspector.get_columns("projects")]
+        if "date" not in cols:
+            conn.execute(text("ALTER TABLE projects ADD COLUMN date VARCHAR(100)"))
+        if "files" not in cols:
+            conn.execute(text("ALTER TABLE projects ADD COLUMN files TEXT"))
+        conn.commit()
+
 app = FastAPI(
     title="OASIS API",
     description="Premium full-stack development agency backend",

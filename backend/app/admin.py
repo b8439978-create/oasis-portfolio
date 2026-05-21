@@ -5,6 +5,9 @@ Alohida admin fayli. Barcha admin panel API'lari shu yerda.
 Frontend: /admin sahifasi orqali ishlaydi.
 """
 
+import json
+import os
+import shutil
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
 from sqlalchemy.orm import Session
 from typing import Optional, List
@@ -22,6 +25,21 @@ from .services.auth_service import hash_password, verify_password, create_access
 from .config import settings
 
 router = APIRouter(prefix="/api/admin", tags=["Admin Panel"])
+
+# ─────────────────────────────────────────────
+# UPLOAD
+# ─────────────────────────────────────────────
+
+@router.post("/upload")
+async def admin_upload(file: UploadFile = File(...)):
+    os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
+    ext = os.path.splitext(file.filename)[1].lower()
+    is_image = ext in ('.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg')
+    file_path = os.path.join(settings.UPLOAD_DIR, file.filename)
+    with open(file_path, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+    url = f"/uploads/{file.filename}"
+    return {"ok": True, "url": url, "name": file.filename, "is_image": is_image}
 
 # ─────────────────────────────────────────────
 # AUTH
@@ -132,39 +150,74 @@ def update_order_status(order_id: int, status: str, db: Session = Depends(get_db
 # PROJECTS MANAGEMENT
 # ─────────────────────────────────────────────
 
-class ProjectData(BaseModel):
-    title: str
-    category: Optional[str] = None
-    description: Optional[str] = None
-    image_url: Optional[str] = None
-    video_url: Optional[str] = None
-    demo_url: Optional[str] = None
-    github_url: Optional[str] = None
-    technologies: Optional[str] = None
-    is_featured: bool = False
+def _project_to_camel(p):
+    files_raw = p.files or "[]"
+    try:
+        files = json.loads(files_raw) if isinstance(files_raw, str) else files_raw
+    except (json.JSONDecodeError, TypeError):
+        files = []
+    tech_list = [t.strip() for t in (p.technologies or "").split(",") if t.strip()]
+    return {
+        "id": p.id,
+        "title": p.title,
+        "description": p.description,
+        "tech": tech_list,
+        "liveUrl": p.demo_url,
+        "githubUrl": p.github_url,
+        "image": p.image_url,
+        "date": p.date or str(p.created_at.year) if p.created_at else "",
+        "files": files,
+        "is_featured": p.is_featured,
+    }
 
-@router.post("/projects")
-def admin_create_project(data: ProjectData, db: Session = Depends(get_db)):
-    project = Project(**data.model_dump())
-    db.add(project)
-    db.commit()
-    db.refresh(project)
-    return {"message": "Project created", "id": project.id}
+class AdminProjectData(BaseModel):
+    title: str
+    description: Optional[str] = None
+    tech: Optional[List[str]] = None
+    liveUrl: Optional[str] = None
+    githubUrl: Optional[str] = None
+    image: Optional[str] = None
+    date: Optional[str] = None
+    files: Optional[List[dict]] = None
 
 @router.get("/projects")
 def admin_list_projects(db: Session = Depends(get_db)):
     projects = db.query(Project).order_by(Project.order_index).all()
-    return [
-        {
-            "id": p.id,
-            "title": p.title,
-            "category": p.category,
-            "is_featured": p.is_featured,
-            "image_url": p.image_url,
-            "created_at": str(p.created_at),
-        }
-        for p in projects
-    ]
+    return [_project_to_camel(p) for p in projects]
+
+@router.post("/projects")
+def admin_create_project(data: AdminProjectData, db: Session = Depends(get_db)):
+    project = Project(
+        title=data.title,
+        description=data.description or "",
+        technologies=", ".join(data.tech) if data.tech else "",
+        demo_url=data.liveUrl or "",
+        github_url=data.githubUrl or "",
+        image_url=data.image or "",
+        date=data.date or "",
+        files=json.dumps(data.files) if data.files else "[]",
+    )
+    db.add(project)
+    db.commit()
+    db.refresh(project)
+    return {"ok": True, "data": _project_to_camel(project)}
+
+@router.put("/projects/{project_id}")
+def admin_update_project(project_id: int, data: AdminProjectData, db: Session = Depends(get_db)):
+    project = db.query(Project).filter(Project.id == project_id).first()
+    if not project:
+        raise HTTPException(status_code=404, detail="Project not found")
+    project.title = data.title
+    project.description = data.description or ""
+    project.technologies = ", ".join(data.tech) if data.tech else ""
+    project.demo_url = data.liveUrl or ""
+    project.github_url = data.githubUrl or ""
+    project.image_url = data.image or ""
+    project.date = data.date or ""
+    project.files = json.dumps(data.files) if data.files else "[]"
+    db.commit()
+    db.refresh(project)
+    return {"ok": True, "data": _project_to_camel(project)}
 
 @router.delete("/projects/{project_id}")
 def admin_delete_project(project_id: int, db: Session = Depends(get_db)):

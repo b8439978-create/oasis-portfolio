@@ -7,7 +7,7 @@ node_modules/
 npm-debug.log
 server.log
 server-err.log
-data/
+/data/
 start-*.bat
 start-*.ps1
 start.vbs

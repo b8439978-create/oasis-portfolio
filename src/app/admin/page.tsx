@@ -77,15 +77,17 @@ export default function AdminDashboard() {
   useEffect(() => {
     if (!token) return;
     Promise.all([
-      fetch(`${API}/api/profile`).then(r => r.json()),
-      fetch(`${API}/api/skills`).then(r => r.json()),
-      fetch(`${API}/api/projects`).then(r => r.json()),
-      fetch(`${API}/api/experience`).then(r => r.json()),
+      fetch(`${API}/api/profile`).then(r => r.json()).catch(() => ({})),
+      fetch(`${API}/api/skills`).then(r => r.json()).catch(() => []),
+      fetch(`${API}/api/projects`).then(r => r.json()).catch(() => []),
+      fetch(`${API}/api/experience`).then(r => r.json()).catch(() => []),
     ]).then(([p, s, pr, e]) => {
-      setProfile(p);
-      setSkills(s);
-      setProjects(pr);
-      setExperience(e);
+      setProfile(p?.name ? p : {});
+      setSkills(Array.isArray(s) ? s : []);
+      setProjects(Array.isArray(pr) ? pr : []);
+      setExperience(Array.isArray(e) ? e : []);
+      setLoading(false);
+    }).catch(() => {
       setLoading(false);
     });
   }, [token]);
@@ -341,9 +343,25 @@ export default function AdminDashboard() {
                   <input value={project.title} onChange={e => updateProject(i, 'title', e.target.value)} placeholder="Project title" style={inputStyle} />
                   <textarea rows={2} value={project.description} onChange={e => updateProject(i, 'description', e.target.value)} placeholder="Description" style={inputStyle} />
                   <input value={project.tech?.join(', ') || ''} onChange={e => updateProject(i, 'tech', e.target.value.split(',').map((t: string) => t.trim()))} placeholder="Tech (comma separated)" style={inputStyle} />
-                  <div style={{ display: 'flex', gap: 8 }}>
-                    <input value={project.liveUrl} onChange={e => updateProject(i, 'liveUrl', e.target.value)} placeholder="Live URL" style={{ ...inputStyle, flex: 1 }} />
-                    <input value={project.githubUrl} onChange={e => updateProject(i, 'githubUrl', e.target.value)} placeholder="GitHub URL" style={{ ...inputStyle, flex: 1 }} />
+                  <input value={project.liveUrl} onChange={e => updateProject(i, 'liveUrl', e.target.value)} placeholder="Live URL" style={inputStyle} />
+                  <div>
+                    <label style={{ fontSize: 11, color: 'var(--text-muted)', display: 'block', marginBottom: 4 }}>Project File</label>
+                    {project.githubUrl && (
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+                        <span style={{ fontSize: 16 }}>&#x1F4CE;</span>
+                        <a href={project.githubUrl} target="_blank" style={{ fontSize: 12, color: 'var(--text-secondary)' }}>{project.githubUrl.split('/').pop()}</a>
+                        <button onClick={() => updateProject(i, 'githubUrl', '')} style={{ ...btnStyle(false), color: '#ef4444', border: 'none', fontSize: 10, padding: '2px 6px', cursor: 'pointer' }}>X</button>
+                      </div>
+                    )}
+                    <label style={{ padding: '4px 10px', borderRadius: 6, border: '1px solid var(--border-color)', fontSize: 11, cursor: 'pointer', color: 'var(--text-muted)', display: 'inline-block' }}>
+                      + Upload File
+                      <input type="file" style={{ display: 'none' }} onChange={async (e) => {
+                        const file = e.target.files?.[0];
+                        if (!file) return;
+                        const result = await uploadFile(token!, file);
+                        if (result) updateProject(i, 'githubUrl', result.url);
+                      }} />
+                    </label>
                   </div>
                   <input value={project.date || ''} onChange={e => updateProject(i, 'date', e.target.value)} placeholder="Date (e.g. 2024, March 2024)" style={inputStyle} />
                   <ImageUpload token={token!} current={project.image} onUploaded={(url) => updateProject(i, 'image', url)} />

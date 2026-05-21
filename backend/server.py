@@ -18,6 +18,7 @@ print(f"[STARTUP] index.html exists: {os.path.isfile(os.path.join(OUT_DIR, 'inde
 
 # Health check — Railway uses this to verify the container is healthy
 @app.route("/health")
+@app.route("/api/health")
 def health():
     return "ok", 200
 
@@ -73,7 +74,6 @@ DEFAULT_PROJECTS = [
         "description": "Real-time analytics platform with AI-powered insights and stunning data visualization.",
         "tech": ["React", "Python", "AI"],
         "liveUrl": "https://example.com",
-        "githubUrl": "https://github.com/bobur/neon-dashboard",
     },
     {
         "id": 2,
@@ -81,7 +81,6 @@ DEFAULT_PROJECTS = [
         "description": "Cinematic streaming platform with immersive 3D interactions and adaptive streaming.",
         "tech": ["Next.js", "Three.js", "FastAPI"],
         "liveUrl": "https://example.com",
-        "githubUrl": "https://github.com/bobur/stream-verse",
     },
     {
         "id": 3,
@@ -89,7 +88,6 @@ DEFAULT_PROJECTS = [
         "description": "Secure cryptocurrency wallet with biometric authentication and real-time market data.",
         "tech": ["React Native", "Node.js", "Web3"],
         "liveUrl": "https://example.com",
-        "githubUrl": "https://github.com/bobur/crypto-vault",
     },
     {
         "id": 4,
@@ -97,7 +95,6 @@ DEFAULT_PROJECTS = [
         "description": "Intelligent automation platform with natural language processing and workflow automation.",
         "tech": ["Python", "AI", "FastAPI"],
         "liveUrl": "https://example.com",
-        "githubUrl": "https://github.com/bobur/ai-assistant",
     },
 ]
 

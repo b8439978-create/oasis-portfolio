@@ -9,7 +9,6 @@ const defaultProjects = [
     description: 'Real-time analytics platform with AI-powered insights and stunning data visualization.',
     tech: ['React', 'Python', 'AI'],
     liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com',
   },
   {
     id: 2,
@@ -17,7 +16,6 @@ const defaultProjects = [
     description: 'Cinematic streaming platform with immersive 3D interactions and adaptive streaming.',
     tech: ['Next.js', 'Three.js', 'FastAPI'],
     liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com',
   },
   {
     id: 3,
@@ -25,7 +23,6 @@ const defaultProjects = [
     description: 'Secure cryptocurrency wallet with biometric authentication and real-time market data.',
     tech: ['React Native', 'Node.js', 'Web3'],
     liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com',
   },
   {
     id: 4,
@@ -33,7 +30,6 @@ const defaultProjects = [
     description: 'Intelligent automation platform with natural language processing and workflow automation.',
     tech: ['Python', 'AI', 'FastAPI'],
     liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com',
   },
 ];
 
@@ -128,14 +124,16 @@ export default function Projects() {
                   >
                     Live Demo
                   </a>
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-outline text-xs !py-2 !px-5"
-                  >
-                    GitHub
-                  </a>
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-outline text-xs !py-2 !px-5"
+                    >
+                      {project.githubUrl.match(/\.(png|jpg|jpeg|gif|webp|svg)$/i) ? 'View Image' : 'Download File'}
+                    </a>
+                  )}
                 </div>
 
                 {project.files && project.files.length > 0 && (
