@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Burger House</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#111;
+      color:white;
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 10%;
+      background:#000;
+      position:sticky;
+      top:0;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:bold;
+      color:#ffb703;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:20px;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#ffb703;
+    }
+
+    .hero{
+      height:90vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      text-align:center;
+      background:url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200&auto=format&fit=crop') center/cover;
+      position:relative;
+    }
+
+    .hero::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.6);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:1;
+    }
+
+    .hero h1{
+      font-size:70px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:20px;
+      margin-bottom:25px;
+    }
+
+    .btn{
+      padding:14px 30px;
+      border:none;
+      background:#ffb703;
+      color:black;
+      font-size:18px;
+      font-weight:bold;
+      border-radius:10px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:scale(1.05);
+    }
+
+    .menu{
+      padding:80px 10%;
+    }
+
+    .menu h2{
+      text-align:center;
+      margin-bottom:50px;
+      font-size:40px;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:#1c1c1c;
+      border-radius:15px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:20px;
+    }
+
+    .card h3{
+      margin-bottom:10px;
+    }
+
+    .price{
+      color:#ffb703;
+      margin:10px 0;
+      font-size:20px;
+      font-weight:bold;
+    }
+
+    footer{
+      text-align:center;
+      padding:25px;
+      background:#000;
+      margin-top:50px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Burger House</div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Menu</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+
+    <div class="hero-content">
+      <h1>Best Burgers In Town</h1>
+
+      <p>Fresh • Hot • Delicious</p>
+
+      <button class="btn" onclick="orderNow()">Order Now</button>
+    </div>
+
+  </section>
+
+  <section class="menu">
+
+    <h2>Popular Menu</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="card-content">
+          <h3>Classic Burger</h3>
+          <p>Juicy beef burger with cheese.</p>
+          <div class="price">$8</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="card-content">
+          <h3>Pizza</h3>
+          <p>Hot and cheesy pepperoni pizza.</p>
+          <div class="price">$12</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="card-content">
+          <h3>French Fries</h3>
+          <p>Crispy golden potato fries.</p>
+          <div class="price">$5</div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2025 Burger House | My First HTML CSS JS Project
+  </footer>
+
+  <script>
+
+    function orderNow(){
+      alert("Your order has been received!");
+    }
+
+  </script>
+
+</body>
+</html>

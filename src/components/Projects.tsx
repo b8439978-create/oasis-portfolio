@@ -2,36 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const defaultProjects = [
-  {
-    id: 1,
-    title: 'Neon Dashboard',
-    description: 'Real-time analytics platform with AI-powered insights and stunning data visualization.',
-    tech: ['React', 'Python', 'AI'],
-    liveUrl: 'https://example.com',
-  },
-  {
-    id: 2,
-    title: 'Stream Verse',
-    description: 'Cinematic streaming platform with immersive 3D interactions and adaptive streaming.',
-    tech: ['Next.js', 'Three.js', 'FastAPI'],
-    liveUrl: 'https://example.com',
-  },
-  {
-    id: 3,
-    title: 'Crypto Vault',
-    description: 'Secure cryptocurrency wallet with biometric authentication and real-time market data.',
-    tech: ['React Native', 'Node.js', 'Web3'],
-    liveUrl: 'https://example.com',
-  },
-  {
-    id: 4,
-    title: 'AI Assistant',
-    description: 'Intelligent automation platform with natural language processing and workflow automation.',
-    tech: ['Python', 'AI', 'FastAPI'],
-    liveUrl: 'https://example.com',
-  },
-];
+const defaultProjects: any[] = []
 
 export default function Projects() {
   const ref = useRef<HTMLElement>(null);

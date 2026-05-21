@@ -309,18 +309,8 @@ export default function AdminDashboard() {
             {skills.map((skill, i) => (
               <div key={i} style={{ ...cardStyle, display: 'flex', gap: 12, alignItems: 'center' }}>
                 <input value={skill.name} onChange={e => updateSkill(i, 'name', e.target.value)} placeholder="Skill name" style={{ ...inputStyle, flex: 1 }} />
-                <input value={skill.icon} onChange={e => updateSkill(i, 'icon', e.target.value)} placeholder="Icon key" style={{ ...inputStyle, width: 80 }} />
+                <ImageUpload token={token!} current={skill.image} onUploaded={(url) => updateSkill(i, 'image', url)} />
                 <input value={skill.date || ''} onChange={e => updateSkill(i, 'date', e.target.value)} placeholder="Date" style={{ ...inputStyle, width: 100 }} />
-                {skill.image && <img src={skill.image} alt="" style={{ width: 30, height: 30, objectFit: 'cover', borderRadius: 4 }} />}
-                <label style={{ fontSize: 10, cursor: 'pointer', color: 'var(--text-muted)', padding: '2px 6px', border: '1px solid var(--border-color)', borderRadius: 4 }}>
-                  Img
-                  <input type="file" accept="image/*" style={{ display: 'none' }} onChange={async (e) => {
-                    const f = e.target.files?.[0]; if (!f) return;
-                    const fd = new FormData(); fd.append('file', f);
-                    const r = await fetch('/api/admin/upload', { method: 'POST', headers: { Authorization: `Bearer ${token!}` }, body: fd });
-                    const d = await r.json(); if (d.ok) updateSkill(i, 'image', d.url);
-                  }} />
-                </label>
                 <button onClick={() => removeSkill(i)} style={{ ...btnStyle(false), color: '#ef4444', borderColor: '#ef4444' }}>X</button>
               </div>
             ))}
