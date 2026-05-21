@@ -14,4 +14,4 @@ services:
       - key: ADMIN_PASSWORD
         value: oasis123
       - key: SECRET_KEY
-        generateValue: true
+        value: oasis-super-secret-key-2024
