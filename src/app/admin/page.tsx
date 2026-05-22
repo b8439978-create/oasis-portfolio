@@ -181,20 +181,14 @@ export default function AdminDashboard() {
   const saveExperience = async (i: number) => {
     setSaving(true);
     const e = experience[i];
-    if (i >= 3) {
-      await fetch(`${API}/api/admin/experience`, { method: 'POST', headers, body: JSON.stringify(e) });
-    } else {
-      await fetch(`${API}/api/admin/experience/${i}`, { method: 'PUT', headers, body: JSON.stringify(e) });
-    }
+    await fetch(`${API}/api/admin/experience`, { method: 'POST', headers, body: JSON.stringify(e) });
     setSaving(false);
     showMsg('Experience saved!');
   };
 
   const deleteExperience = async (i: number) => {
     setSaving(true);
-    if (i >= 3) {
-      await fetch(`${API}/api/admin/experience/${i}`, { method: 'DELETE', headers });
-    }
+    await fetch(`${API}/api/admin/experience/${i}`, { method: 'DELETE', headers });
     setExperience(experience.filter((_, idx) => idx !== i));
     setSaving(false);
     showMsg('Experience deleted!');
