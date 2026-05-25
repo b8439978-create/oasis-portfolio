@@ -1,3 +1,9 @@
+databases:
+  - name: oasis-db
+    plan: free
+    databaseName: oasis
+    user: oasis_user
+
 services:
   - type: web
     name: oasis-portfolio
@@ -15,3 +21,7 @@ services:
         value: oasis123
       - key: SECRET_KEY
         value: oasis-super-secret-key-2024
+      - key: DATABASE_URL
+        fromDatabase:
+          name: oasis-db
+          property: connectionString
