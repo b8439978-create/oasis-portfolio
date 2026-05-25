@@ -1,1 +1,574 @@
-[{"date":"Sep 2025","description":"Premium electronics store. Cutting-edge gadgets, laptops, and accessories. - Oasis tomonidan yaratilgan","files":[],"githubUrl":"/uploads/3bf2f78fde284434af8d7e0005f67d65.html","id":1,"image":"","liveUrl":"/uploads/3bf2f78fde284434af8d7e0005f67d65.html","tech":["HTML","CSS","JavaScript"],"title":"TechNova"},{"date":"Oct 2025","description":"Premium fashion house. Trendsetting apparel and accessories for the modern individual. - Oasis tomonidan yaratilgan","files":[],"githubUrl":"/uploads/ee218cb1196e4a8baf92b4a7d62ccba9.html","id":2,"image":"","liveUrl":"/uploads/ee218cb1196e4a8baf92b4a7d62ccba9.html","tech":["HTML","CSS","JavaScript"],"title":"Velora"},{"date":"Nov 2025","description":"Premium florist shop. Handcrafted bouquets and floral arrangements for every occasion. - Oasis tomonidan yaratilgan","files":[],"githubUrl":"/uploads/33c470c9f424433d9ca25fddc83ac4ad.html","id":3,"image":"","liveUrl":"/uploads/33c470c9f424433d9ca25fddc83ac4ad.html","tech":["HTML","CSS","JavaScript"],"title":"Bloomly"},{"date":"Dec 2025","description":"Premium luxury auto dealership. Exotic and high-performance vehicles. - Oasis tomonidan yaratilgan","files":[],"githubUrl":"/uploads/7d2a0c6dde9d41d9b78f9418f3cc5e5f.html","id":4,"image":"","liveUrl":"/uploads/7d2a0c6dde9d41d9b78f9418f3cc5e5f.html","tech":["HTML","CSS","JavaScript"],"title":"LuxDrive"},{"date":"Jan 2026","description":"Premium sports equipment store. High-performance gear and supplements. - Oasis tomonidan yaratilgan","files":[],"githubUrl":"/uploads/661d4c7c2f734a6c8a5b4a69da40b8a8.html","id":5,"image":"","liveUrl":"/uploads/661d4c7c2f734a6c8a5b4a69da40b8a8.html","tech":["HTML","CSS","JavaScript"],"title":"FitPulse"},{"date":"Feb 2026","description":"Premium bookstore. Curated collection of the world's finest literature. - Oasis tomonidan yaratilgan","files":[],"githubUrl":"/uploads/656213690a024c11844cffd50b0c3fba.html","id":6,"image":"","liveUrl":"/uploads/656213690a024c11844cffd50b0c3fba.html","tech":["HTML","CSS","JavaScript"],"title":"PageTurn"},{"date":"Mar 2026","description":"Premium organic food store. Farm-fresh organic produce and sustainable goods. - Oasis tomonidan yaratilgan","files":[],"githubUrl":"/uploads/119c73e8b80448a2a693944077d931de.html","id":7,"image":"","liveUrl":"/uploads/119c73e8b80448a2a693944077d931de.html","tech":["HTML","CSS","JavaScript"],"title":"GreenHarvest"},{"date":"Apr 2026","description":"Premium furniture showroom. Designer furniture for modern living spaces. - Oasis tomonidan yaratilgan","files":[],"githubUrl":"/uploads/1de61f3a4978440bb1de5f6ac172288f.html","id":8,"image":"","liveUrl":"/uploads/1de61f3a4978440bb1de5f6ac172288f.html","tech":["HTML","CSS","JavaScript"],"title":"CasaNova"},{"date":"May 2026","description":"Premium gaming store. Latest games, consoles, and gaming gear. - Oasis tomonidan yaratilgan","files":[],"githubUrl":"/uploads/caa46bd09e814f57864235caeecbe0e4.html","id":9,"image":"","liveUrl":"/uploads/caa46bd09e814f57864235caeecbe0e4.html","tech":["HTML","CSS","JavaScript"],"title":"PixelMart"},{"date":"May 2026","description":"Premium pet shop. Luxury supplies, nutritious food, and accessories for pets. - Oasis tomonidan yaratilgan","files":[],"githubUrl":"/uploads/bc7f88692dfe420fab1806486adefb22.html","id":10,"image":"","liveUrl":"/uploads/bc7f88692dfe420fab1806486adefb22.html","tech":["HTML","CSS","JavaScript"],"title":"Pet Paradise"},{"date":"September 2025","description":"Burger King restoranining landing page. HTML, CSS, JS bilan 2025 Sentabrda yasalgan. - Oasis tomonidan yaratilgan","files":[],"githubUrl":"/uploads/e5e28b001926420c81d049c21f29ca05.html","id":11,"image":"","liveUrl":"/uploads/e5e28b001926420c81d049c21f29ca05.html","tech":["HTML","CSS","JavaScript"],"title":"Burger King"},{"date":"January 2026","description":"Kino va filmlar uchun e-commerce platforma. FastAPI backend, React frontend. - Oasis tomonidan yaratilgan","files":[],"githubUrl":"","id":12,"image":"","liveUrl":"","tech":["Python","FastAPI","React","SQLAlchemy","SQLite"],"title":"KinoKorik"},{"date":"Mar 2026","description":"Interactive 3D product configurator with real-time lighting, shadows, and particle effects using Three.js. - Oasis tomonidan yaratilgan","files":[],"githubUrl":"/uploads/0629a0b6466f45da98120433012d9732.html","id":13,"image":"","liveUrl":"/uploads/0629a0b6466f45da98120433012d9732.html","tech":["Three.js","JavaScript","WebGL"],"title":"3D Product Showcase"},{"date":"Mar 2026","description":"Procedurally generated spiral galaxy with 15,000 particles, dynamic color transitions, and orbital animations. - Oasis tomonidan yaratilgan","files":[],"githubUrl":"/uploads/e6040b4cc984496fa4afde963731cb61.html","id":14,"image":"","liveUrl":"/uploads/e6040b4cc984496fa4afde963731cb61.html","tech":["Three.js","JavaScript","WebGL"],"title":"Galaxy Portal"},{"date":"Mar 2026","description":"Realistic 3D model of the Eiffel Tower in Paris. Loads an actual GLB model with accurate geometry, illuminated by dynamic lighting with shadows, particle effects, orbital controls, and auto-rotation. - Oasis tomonidan yaratilgan","files":[],"githubUrl":"/uploads/ad79a8032a6a4dec8062a84a2db2679c.html","id":15,"image":"","liveUrl":"/uploads/ad79a8032a6a4dec8062a84a2db2679c.html","tech":["Three.js","JavaScript","WebGL","3D Modeling"],"title":"Eiffel Tower"},{"date":"October 2026","description":"React-powered movie streaming platform with search, genre filtering, and detailed movie info modal. - Oasis tomonidan yaratilgan","files":[],"githubUrl":"/uploads/7d3a550bffd641a9b0a07269141db590.html","id":16,"image":"","liveUrl":"/uploads/7d3a550bffd641a9b0a07269141db590.html","tech":["React","JavaScript","JSX","CSS"],"title":"KinoFlix"},{"date":"October 2026","description":"React fast food ordering app with category filtering, shopping cart, quantity management, and checkout. - Oasis tomonidan yaratilgan","files":[],"githubUrl":"/uploads/8766f42ae12344e894633b065d1439aa.html","id":17,"image":"","liveUrl":"/uploads/8766f42ae12344e894633b065d1439aa.html","tech":["React","JavaScript","JSX","CSS"],"title":"QuickBite"},{"date":"October 2026","description":"Interactive 3D showcase of the BMW M4 Competition. Loads a high-quality GLB model with realistic materials, lighting, shadow mapping, orbital controls, and particle effects. - Oasis tomonidan yaratilgan","files":[],"githubUrl":"/uploads/54dc0e06a06c49db85ff5664a0cc247c.html","id":18,"image":"","liveUrl":"/uploads/54dc0e06a06c49db85ff5664a0cc247c.html","tech":["Three.js","JavaScript","WebGL","3D Modeling"],"title":"BMW M4 Competition"}]
+[
+    {
+        "date":  "Sep 2025",
+        "description":  "Premium electronics store. Cutting-edge gadgets, laptops, and accessories. - Oasis tomonidan yaratilgan",
+        "files":  [
+
+                  ],
+        "githubUrl":  "/uploads/3bf2f78fde284434af8d7e0005f67d65.html",
+        "id":  1,
+        "image":  "",
+        "liveUrl":  "/uploads/3bf2f78fde284434af8d7e0005f67d65.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "TechNova"
+    },
+    {
+        "date":  "Oct 2025",
+        "description":  "Premium fashion house. Trendsetting apparel and accessories for the modern individual. - Oasis tomonidan yaratilgan",
+        "files":  [
+
+                  ],
+        "githubUrl":  "/uploads/ee218cb1196e4a8baf92b4a7d62ccba9.html",
+        "id":  2,
+        "image":  "",
+        "liveUrl":  "/uploads/ee218cb1196e4a8baf92b4a7d62ccba9.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "Velora"
+    },
+    {
+        "date":  "Nov 2025",
+        "description":  "Premium florist shop. Handcrafted bouquets and floral arrangements for every occasion. - Oasis tomonidan yaratilgan",
+        "files":  [
+
+                  ],
+        "githubUrl":  "/uploads/33c470c9f424433d9ca25fddc83ac4ad.html",
+        "id":  3,
+        "image":  "",
+        "liveUrl":  "/uploads/33c470c9f424433d9ca25fddc83ac4ad.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "Bloomly"
+    },
+    {
+        "date":  "Dec 2025",
+        "description":  "Premium luxury auto dealership. Exotic and high-performance vehicles. - Oasis tomonidan yaratilgan",
+        "files":  [
+
+                  ],
+        "githubUrl":  "/uploads/7d2a0c6dde9d41d9b78f9418f3cc5e5f.html",
+        "id":  4,
+        "image":  "",
+        "liveUrl":  "/uploads/7d2a0c6dde9d41d9b78f9418f3cc5e5f.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "LuxDrive"
+    },
+    {
+        "date":  "Jan 2026",
+        "description":  "Premium sports equipment store. High-performance gear and supplements. - Oasis tomonidan yaratilgan",
+        "files":  [
+
+                  ],
+        "githubUrl":  "/uploads/661d4c7c2f734a6c8a5b4a69da40b8a8.html",
+        "id":  5,
+        "image":  "",
+        "liveUrl":  "/uploads/661d4c7c2f734a6c8a5b4a69da40b8a8.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "FitPulse"
+    },
+    {
+        "date":  "Feb 2026",
+        "description":  "Premium bookstore. Curated collection of the world\u0027s finest literature. - Oasis tomonidan yaratilgan",
+        "files":  [
+
+                  ],
+        "githubUrl":  "/uploads/656213690a024c11844cffd50b0c3fba.html",
+        "id":  6,
+        "image":  "",
+        "liveUrl":  "/uploads/656213690a024c11844cffd50b0c3fba.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "PageTurn"
+    },
+    {
+        "date":  "Mar 2026",
+        "description":  "Premium organic food store. Farm-fresh organic produce and sustainable goods. - Oasis tomonidan yaratilgan",
+        "files":  [
+
+                  ],
+        "githubUrl":  "/uploads/119c73e8b80448a2a693944077d931de.html",
+        "id":  7,
+        "image":  "",
+        "liveUrl":  "/uploads/119c73e8b80448a2a693944077d931de.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "GreenHarvest"
+    },
+    {
+        "date":  "Apr 2026",
+        "description":  "Premium furniture showroom. Designer furniture for modern living spaces. - Oasis tomonidan yaratilgan",
+        "files":  [
+
+                  ],
+        "githubUrl":  "/uploads/1de61f3a4978440bb1de5f6ac172288f.html",
+        "id":  8,
+        "image":  "",
+        "liveUrl":  "/uploads/1de61f3a4978440bb1de5f6ac172288f.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "CasaNova"
+    },
+    {
+        "date":  "May 2026",
+        "description":  "Premium gaming store. Latest games, consoles, and gaming gear. - Oasis tomonidan yaratilgan",
+        "files":  [
+
+                  ],
+        "githubUrl":  "/uploads/caa46bd09e814f57864235caeecbe0e4.html",
+        "id":  9,
+        "image":  "",
+        "liveUrl":  "/uploads/caa46bd09e814f57864235caeecbe0e4.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "PixelMart"
+    },
+    {
+        "date":  "May 2026",
+        "description":  "Premium pet shop. Luxury supplies, nutritious food, and accessories for pets. - Oasis tomonidan yaratilgan",
+        "files":  [
+
+                  ],
+        "githubUrl":  "/uploads/bc7f88692dfe420fab1806486adefb22.html",
+        "id":  10,
+        "image":  "",
+        "liveUrl":  "/uploads/bc7f88692dfe420fab1806486adefb22.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "Pet Paradise"
+    },
+    {
+        "date":  "September 2025",
+        "description":  "Burger King restoranining landing page. HTML, CSS, JS bilan 2025 Sentabrda yasalgan. - Oasis tomonidan yaratilgan",
+        "files":  [
+
+                  ],
+        "githubUrl":  "/uploads/e5e28b001926420c81d049c21f29ca05.html",
+        "id":  11,
+        "image":  "",
+        "liveUrl":  "/uploads/e5e28b001926420c81d049c21f29ca05.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "Burger King"
+    },
+    {
+        "date":  "January 2026",
+        "description":  "Kino va filmlar uchun e-commerce platforma. FastAPI backend, React frontend. - Oasis tomonidan yaratilgan",
+        "files":  [
+
+                  ],
+        "githubUrl":  "",
+        "id":  12,
+        "image":  "",
+        "liveUrl":  "",
+        "tech":  [
+                     "Python",
+                     "FastAPI",
+                     "React",
+                     "SQLAlchemy",
+                     "SQLite"
+                 ],
+        "title":  "KinoKorik"
+    },
+    {
+        "date":  "Mar 2026",
+        "description":  "Interactive 3D product configurator with real-time lighting, shadows, and particle effects using Three.js. - Oasis tomonidan yaratilgan",
+        "files":  [
+
+                  ],
+        "githubUrl":  "/uploads/0629a0b6466f45da98120433012d9732.html",
+        "id":  13,
+        "image":  "",
+        "liveUrl":  "/uploads/0629a0b6466f45da98120433012d9732.html",
+        "tech":  [
+                     "Three.js",
+                     "JavaScript",
+                     "WebGL"
+                 ],
+        "title":  "3D Product Showcase"
+    },
+    {
+        "date":  "Mar 2026",
+        "description":  "Procedurally generated spiral galaxy with 15,000 particles, dynamic color transitions, and orbital animations. - Oasis tomonidan yaratilgan",
+        "files":  [
+
+                  ],
+        "githubUrl":  "/uploads/e6040b4cc984496fa4afde963731cb61.html",
+        "id":  14,
+        "image":  "",
+        "liveUrl":  "/uploads/e6040b4cc984496fa4afde963731cb61.html",
+        "tech":  [
+                     "Three.js",
+                     "JavaScript",
+                     "WebGL"
+                 ],
+        "title":  "Galaxy Portal"
+    },
+    {
+        "date":  "Mar 2026",
+        "description":  "Realistic 3D model of the Eiffel Tower in Paris. Loads an actual GLB model with accurate geometry, illuminated by dynamic lighting with shadows, particle effects, orbital controls, and auto-rotation. - Oasis tomonidan yaratilgan",
+        "files":  [
+
+                  ],
+        "githubUrl":  "/uploads/ad79a8032a6a4dec8062a84a2db2679c.html",
+        "id":  15,
+        "image":  "",
+        "liveUrl":  "/uploads/ad79a8032a6a4dec8062a84a2db2679c.html",
+        "tech":  [
+                     "Three.js",
+                     "JavaScript",
+                     "WebGL",
+                     "3D Modeling"
+                 ],
+        "title":  "Eiffel Tower"
+    },
+    {
+        "date":  "October 2026",
+        "description":  "React-powered movie streaming platform with search, genre filtering, and detailed movie info modal. - Oasis tomonidan yaratilgan",
+        "files":  [
+
+                  ],
+        "githubUrl":  "/uploads/7d3a550bffd641a9b0a07269141db590.html",
+        "id":  16,
+        "image":  "",
+        "liveUrl":  "/uploads/7d3a550bffd641a9b0a07269141db590.html",
+        "tech":  [
+                     "React",
+                     "JavaScript",
+                     "JSX",
+                     "CSS"
+                 ],
+        "title":  "KinoFlix"
+    },
+    {
+        "date":  "October 2026",
+        "description":  "React fast food ordering app with category filtering, shopping cart, quantity management, and checkout. - Oasis tomonidan yaratilgan",
+        "files":  [
+
+                  ],
+        "githubUrl":  "/uploads/8766f42ae12344e894633b065d1439aa.html",
+        "id":  17,
+        "image":  "",
+        "liveUrl":  "/uploads/8766f42ae12344e894633b065d1439aa.html",
+        "tech":  [
+                     "React",
+                     "JavaScript",
+                     "JSX",
+                     "CSS"
+                 ],
+        "title":  "QuickBite"
+    },
+    {
+        "date":  "October 2026",
+        "description":  "Interactive 3D showcase of the BMW M4 Competition. Loads a high-quality GLB model with realistic materials, lighting, shadow mapping, orbital controls, and particle effects. - Oasis tomonidan yaratilgan",
+        "files":  [
+
+                  ],
+        "githubUrl":  "/uploads/54dc0e06a06c49db85ff5664a0cc247c.html",
+        "id":  18,
+        "image":  "",
+        "liveUrl":  "/uploads/54dc0e06a06c49db85ff5664a0cc247c.html",
+        "tech":  [
+                     "Three.js",
+                     "JavaScript",
+                     "WebGL",
+                     "3D Modeling"
+                 ],
+        "title":  "BMW M4 Competition"
+    },
+    {
+        "date":  "November 2025",
+        "description":  "Premium sneakers and streetwear. Latest drops and exclusive releases. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/0b3809016d3441dc874e80c4a4245e3a.html",
+        "id":  19,
+        "liveUrl":  "/uploads/0b3809016d3441dc874e80c4a4245e3a.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "SneakerHead"
+    },
+    {
+        "date":  "December 2025",
+        "description":  "Handcrafted luxury timepieces for the discerning gentleman. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/96e9b7121e9b4cc79f0b0e2649f2381b.html",
+        "id":  20,
+        "liveUrl":  "/uploads/96e9b7121e9b4cc79f0b0e2649f2381b.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "WatchCraft"
+    },
+    {
+        "date":  "January 2026",
+        "description":  "Premium beauty and skincare products for radiant skin. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/44b9f835512d4e83b00ac07eff8dafd1.html",
+        "id":  21,
+        "liveUrl":  "/uploads/44b9f835512d4e83b00ac07eff8dafd1.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "GlowUp"
+    },
+    {
+        "date":  "February 2026",
+        "description":  "Artisan roasted coffee beans from the world\u0027s finest regions. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/5c32c514f11d40179f131427a786dcb5.html",
+        "id":  22,
+        "liveUrl":  "/uploads/5c32c514f11d40179f131427a786dcb5.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "CoffeeRoast"
+    },
+    {
+        "date":  "March 2026",
+        "description":  "High-performance bicycles for road, mountain, and urban riding. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/aa398eac2388423da9a7642485c21a60.html",
+        "id":  23,
+        "liveUrl":  "/uploads/aa398eac2388423da9a7642485c21a60.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "BikeElite"
+    },
+    {
+        "date":  "April 2026",
+        "description":  "Premium audio equipment for the true audiophile experience. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/bb60aa639dc04b17b50ad53c1dd8b354.html",
+        "id":  24,
+        "liveUrl":  "/uploads/bb60aa639dc04b17b50ad53c1dd8b354.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "AudioVault"
+    },
+    {
+        "date":  "May 2026",
+        "description":  "Magical toys and games that spark creativity and joy. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/84fe96c380f3449da089be274ad5e290.html",
+        "id":  25,
+        "liveUrl":  "/uploads/84fe96c380f3449da089be274ad5e290.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "ToyWorld"
+    },
+    {
+        "date":  "June 2026",
+        "description":  "Curated vintage fashion from the golden eras of style. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/935d1ee928e64adcb7deadd4aed31a67.html",
+        "id":  26,
+        "liveUrl":  "/uploads/935d1ee928e64adcb7deadd4aed31a67.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "VintageVibe"
+    },
+    {
+        "date":  "July 2026",
+        "description":  "Handcrafted sourdough, pastries, and baked goods daily. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/835a1ddb5a3a448b954de32a83401b42.html",
+        "id":  27,
+        "liveUrl":  "/uploads/835a1ddb5a3a448b954de32a83401b42.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "ArtisanBread"
+    },
+    {
+        "date":  "August 2026",
+        "description":  "Fresh premium seafood delivered straight from the ocean. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/a8ca080625df4922b15d966fa3e19fd1.html",
+        "id":  28,
+        "liveUrl":  "/uploads/a8ca080625df4922b15d966fa3e19fd1.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "OceanBlue"
+    },
+    {
+        "date":  "September 2026",
+        "description":  "Bold streetwear fashion for the modern urban explorer. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/f6d259143d9d4742863b2061af90186b.html",
+        "id":  29,
+        "liveUrl":  "/uploads/f6d259143d9d4742863b2061af90186b.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "UrbanWear"
+    },
+    {
+        "date":  "October 2026",
+        "description":  "Cutting-edge tech gadgets and smart accessories. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/9c7524e2e9bc4783b903d10ea8decd97.html",
+        "id":  30,
+        "liveUrl":  "/uploads/9c7524e2e9bc4783b903d10ea8decd97.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "GadgetPro"
+    },
+    {
+        "date":  "November 2026",
+        "description":  "Premium home decor and furniture for sophisticated living. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/511deadbf2a847d8af19550b8a639d56.html",
+        "id":  31,
+        "liveUrl":  "/uploads/511deadbf2a847d8af19550b8a639d56.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "LuxeLiving"
+    },
+    {
+        "date":  "December 2026",
+        "description":  "Professional gym equipment and fitness accessories. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/55ebfd8df9e0497c9f33c52c1219ceb6.html",
+        "id":  32,
+        "liveUrl":  "/uploads/55ebfd8df9e0497c9f33c52c1219ceb6.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "FitGear"
+    },
+    {
+        "date":  "January 2027",
+        "description":  "Authentic Japanese sushi and premium dining experience. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/fe94ce687d234db29b3b04a89c77de32.html",
+        "id":  33,
+        "liveUrl":  "/uploads/fe94ce687d234db29b3b04a89c77de32.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "SushiMaster"
+    },
+    {
+        "date":  "February 2027",
+        "description":  "Curated collection of books for every reader and dreamer. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/48cab2e327ea4a8291025bd1518db50c.html",
+        "id":  34,
+        "liveUrl":  "/uploads/48cab2e327ea4a8291025bd1518db50c.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "BookNest"
+    },
+    {
+        "date":  "March 2027",
+        "description":  "Premium food, toys, and accessories for your furry friends. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/2d76568f8a7345ca8cf2ba0ffbe27489.html",
+        "id":  35,
+        "liveUrl":  "/uploads/2d76568f8a7345ca8cf2ba0ffbe27489.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "PetCare"
+    },
+    {
+        "date":  "April 2027",
+        "description":  "Curated travel experiences to the world\u0027s most stunning destinations. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/2bb6cc6a691646038e9fd87d4b02e667.html",
+        "id":  36,
+        "liveUrl":  "/uploads/2bb6cc6a691646038e9fd87d4b02e667.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "TravelDeal"
+    },
+    {
+        "date":  "May 2027",
+        "description":  "Exquisite fine jewelry crafted with precious gemstones. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/a75146a13b8d496691710aa957c46134.html",
+        "id":  37,
+        "liveUrl":  "/uploads/a75146a13b8d496691710aa957c46134.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "JewelVault"
+    },
+    {
+        "date":  "June 2027",
+        "description":  "Indoor plants, succulents, and botanical accessories. - Oasis tomonidan yaratilgan",
+        "githubUrl":  "/uploads/421ddcddcffc4e359bbcfb48e2ffb5e2.html",
+        "id":  38,
+        "liveUrl":  "/uploads/421ddcddcffc4e359bbcfb48e2ffb5e2.html",
+        "tech":  [
+                     "HTML",
+                     "CSS",
+                     "JavaScript"
+                 ],
+        "title":  "GreenLeaf"
+    }
+]
